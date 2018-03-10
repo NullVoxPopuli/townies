@@ -1,14 +1,4 @@
 #!/usr/bin/env bash
-
-REQUIRED_DEV_TOOLS=(
-  "docker"
-  "docker-compose"
-)
-
-REQUIRED_DEPLOY_TOOLS=(
-  "kubectl"
-)
-
 PROJECT_FOLDER_NAME=${PWD##*/}
 COMPOSE_PROJECT_NAME=$PROJECT_FOLDER_NAME
 FULL_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -34,7 +24,6 @@ function rundocko {
     *)
       help
       exit 1
-    ;;
   esac
 }
 
@@ -64,6 +53,16 @@ function _dev_task() {
   esac
 }
 
+
+REQUIRED_DEV_TOOLS=(
+  "docker"
+  "docker-compose"
+)
+
+REQUIRED_DEPLOY_TOOLS=(
+  "kubectl"
+)
+
 function help() {
   echo "Usage: <env> option [option...]";
   echo ""
@@ -71,6 +70,9 @@ function help() {
   echo "    dev up:       ups the compose containers"
   echo "    dev up:build: runs docker-compose up --build"
   echo "    dev * :       forwards args to docker-compose"
+  echo ""
+  echo "    dev ui:       start a shell on the ui/web container"
+  echo "    dev api:      start a shell on the api container"
   echo ""
   echo "    dev db:psql:         execs psql on the running db container"
   echo "    dev db:migrate:      runs the infrastructure migrations"

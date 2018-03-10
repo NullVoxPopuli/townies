@@ -12,3 +12,12 @@
   * inversify.ts, IoC configuration
   * inversify.test.ts, IoC configuration for test
   * server.ts, Hapi Server configuration
+
+
+## Building the Docker Image
+
+```bash
+# in the api (this) directory
+docker build --target development -f Dockerfile -t townies-api ..
+docker run -it townies-api sh
+```

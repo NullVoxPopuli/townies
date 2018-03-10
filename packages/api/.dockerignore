@@ -1,4 +1,9 @@
 # Context is 'packages'
-/web
-/native
-/node_modules
+*/*/web
+*/*/native
+
+
+*/*/node_modules*
+
+*/*/.git
+*/*/tmp

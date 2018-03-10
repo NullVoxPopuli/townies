@@ -34,7 +34,7 @@ services:
       - config-node_modules:/app/config/node_modules
       - infrastructure-node_modules:/app/infrastructure/node_modules
       - web-node_modules:/src/node_modules
-      - yarn-cache:/app/.yarn-cache
+      # - yarn-cache:/app/.yarn-cache
 
     networks:
       - internet
@@ -82,7 +82,7 @@ services:
       - core-node_modules:/app/core/node_modules
       - config-node_modules:/app/config/node_modules
       - infrastructure-node_modules:/app/infrastructure/node_modules
-      - yarn-cache:/app/.yarn-cache
+      # - yarn-cache:/app/.yarn-cache
     links:
       - db
   db:
