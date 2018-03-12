@@ -4,7 +4,7 @@ version: '3.4'
 #  - "HOST:CONTAINER"
 services:
   web:
-    command: bash -c "nginx; yarn run web:start"
+    command: bash -c "yarn && nginx; yarn run web:start"
     environment:
       NODE_ENV: development
       PORT: 8080
@@ -13,7 +13,7 @@ services:
       - "8080:80"
 
   api:
-    command: bash -c 'cd /app; (yarn run watch &); yarn run api:start'
+    command: bash -c 'cd /app; yarn && (yarn run watch &); yarn run api:start'
     environment:
       NODE_ENV: development
       DB_NAME: dt-townies
